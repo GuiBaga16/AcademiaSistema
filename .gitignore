@@ -1,0 +1,16 @@
+# Pastas de build e arquivos compilados
+build/
+dist/
+target/
+*.class
+
+# Arquivos privados do NetBeans
+nbproject/private/
+
+# Arquivos gerados pelo NetBeans
+nbproject/build-impl.xml
+nbproject/genfiles.properties
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
