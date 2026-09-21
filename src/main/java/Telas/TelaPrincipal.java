@@ -29,8 +29,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        dskAluno = new javax.swing.JMenu();
+        dskAlunos = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem4 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem5 = new javax.swing.JCheckBoxMenuItem();
@@ -51,24 +51,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGap(0, 309, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Cadastros");
+        dskAluno.setText("Cadastros");
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Alunos");
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        dskAlunos.setSelected(true);
+        dskAlunos.setText("Alunos");
+        dskAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
+                dskAlunosActionPerformed(evt);
             }
         });
-        jMenu1.add(jCheckBoxMenuItem1);
+        dskAluno.add(dskAlunos);
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("Equipamentos");
-        jMenu1.add(jCheckBoxMenuItem2);
+        dskAluno.add(jCheckBoxMenuItem2);
 
         jCheckBoxMenuItem4.setSelected(true);
         jCheckBoxMenuItem4.setText("Treinos");
-        jMenu1.add(jCheckBoxMenuItem4);
+        dskAluno.add(jCheckBoxMenuItem4);
 
         jCheckBoxMenuItem5.setSelected(true);
         jCheckBoxMenuItem5.setText("Exercicios");
@@ -77,9 +77,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jCheckBoxMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu1.add(jCheckBoxMenuItem5);
+        dskAluno.add(jCheckBoxMenuItem5);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(dskAluno);
 
         setJMenuBar(jMenuBar1);
 
@@ -97,9 +97,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+    private void dskAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dskAlunosActionPerformed
+        TelaAluno ifrAluno = new TelaAluno();
+        dskAlunos.add(ifrAluno);
+        ifrAluno.setVisible(true);
+    }//GEN-LAST:event_dskAlunosActionPerformed
 
     private void jCheckBoxMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem5ActionPerformed
         // TODO add your handling code here:
@@ -141,12 +143,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JMenu dskAluno;
+    private javax.swing.JCheckBoxMenuItem dskAlunos;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem4;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem5;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

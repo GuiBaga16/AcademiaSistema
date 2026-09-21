@@ -10,6 +10,7 @@ public class Aluno {
     private String email;
     private String telefone;
     private LocalDate dataNascimento;
+    private int idAlunoEditando = 0;
 
     public Aluno() {
     }
