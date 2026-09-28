@@ -3,8 +3,7 @@
  */
 package Main;
 
-import config.Conexao;
-import java.sql.Connection;
+import Telas.TelaPrincipal;
 
 /**
  *
@@ -13,16 +12,10 @@ import java.sql.Connection;
 public class AcademiaSistema {
 
     public static void main(String[] args) {
-        try {
-            Connection conexao = Conexao.conectar();
-
-            System.out.println("Conexão realizada com sucesso!");
-
-            conexao.close();
-
-        } catch (Exception e) {
-            System.out.println("Erro ao conectar com o banco:");
-            e.printStackTrace();
-        }
+        
+        java.awt.EventQueue.invokeLater(() -> {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.setVisible(true);
+        });
     }
 }

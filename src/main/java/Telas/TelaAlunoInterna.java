@@ -1,9 +1,9 @@
-package Telas;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
+package Telas;
+
 import Controllers.AlunosController;
 import Entidade.Aluno;
 import java.util.ArrayList;
@@ -12,13 +12,13 @@ import recursos.Mensagem;
 
 /**
  *
- * @author guilherme.bagatini
+ * @author GuiBaga
  */
-public class TelaAluno extends javax.swing.JFrame {
+public class TelaAlunoInterna extends javax.swing.JInternalFrame {
 
     private int idAlunoEditando = 0;
-
-    public TelaAluno() {
+    
+    public TelaAlunoInterna() {
         initComponents();
         carregaInformacoes();
     }
@@ -32,7 +32,6 @@ public class TelaAluno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane3 = new javax.swing.JTabbedPane();
         jtpAluno = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         lblPesquisa = new javax.swing.JLabel();
@@ -55,16 +54,12 @@ public class TelaAluno extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
 
         lblPesquisa.setText("Pesquisar");
 
         btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
+        btnBuscar.addActionListener(this::btnBuscarActionPerformed);
 
         tblAluno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,19 +75,11 @@ public class TelaAluno extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblAluno);
 
         btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
+        btnEditar.addActionListener(this::btnEditarActionPerformed);
 
         btnExcluir.setBackground(new java.awt.Color(255, 51, 51));
         btnExcluir.setText("Excluir");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
-            }
-        });
+        btnExcluir.addActionListener(this::btnExcluirActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -101,7 +88,7 @@ public class TelaAluno extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblPesquisa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -133,35 +120,15 @@ public class TelaAluno extends javax.swing.JFrame {
 
         jtpAluno.addTab("Aluno", jPanel1);
 
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
+        txtNome.addActionListener(this::txtNomeActionPerformed);
 
-        txtDocumento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDocumentoActionPerformed(evt);
-            }
-        });
+        txtDocumento.addActionListener(this::txtDocumentoActionPerformed);
 
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
+        txtEmail.addActionListener(this::txtEmailActionPerformed);
 
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
-            }
-        });
+        txtTelefone.addActionListener(this::txtTelefoneActionPerformed);
 
-        txtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDataNascimentoActionPerformed(evt);
-            }
-        });
+        txtDataNascimento.addActionListener(this::txtDataNascimentoActionPerformed);
 
         jLabel1.setText("Nome");
 
@@ -174,11 +141,7 @@ public class TelaAluno extends javax.swing.JFrame {
         jLabel5.setText("Data Nascimento");
 
         btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
+        btnSalvar.addActionListener(this::btnSalvarActionPerformed);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -198,7 +161,7 @@ public class TelaAluno extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGap(45, 45, 45)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                                    .addComponent(txtDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                                     .addComponent(txtNome)
                                     .addComponent(txtEmail)
                                     .addComponent(txtTelefone))))
@@ -239,7 +202,7 @@ public class TelaAluno extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
                 .addGap(20, 20, 20))
         );
@@ -325,6 +288,46 @@ public class TelaAluno extends javax.swing.JFrame {
         }
     }
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        carregaInformacoes();
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        int linha = tblAluno.getSelectedRow();
+
+        if (linha == -1) {
+            Mensagem.erro("Selecione um aluno para editar.");
+            return;
+        }
+
+        int Id = Integer.parseInt(String.valueOf(tblAluno.getModel().getValueAt(linha, 0)));
+
+        Aluno aluno = AlunosController.recuperaUm(Id);
+        if (aluno == null) {
+            Mensagem.erro("Aluno não encontrado.");
+        } else {
+            idAlunoEditando = aluno.getId();
+            txtNome.setText(aluno.getNome());
+            txtDocumento.setText(aluno.getDocumento());
+            txtEmail.setText(aluno.getEmail());
+            txtTelefone.setText(aluno.getTelefone());
+
+            if (aluno.getDataNascimento() != null) {
+                java.time.format.DateTimeFormatter formato
+                        = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                txtDataNascimento.setText(
+                        aluno.getDataNascimento().format(formato)
+                );
+            } else {
+                txtDataNascimento.setText("");
+            }
+
+            jtpAluno.setSelectedIndex(1);
+            txtNome.requestFocus();
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         int linha = tblAluno.getSelectedRow();
 
@@ -348,41 +351,6 @@ public class TelaAluno extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        int linha = tblAluno.getSelectedRow();
-
-        if (linha == -1) {
-            Mensagem.erro("Selecione um aluno para editar.");
-            return;
-        }
-
-        int Id = Integer.parseInt(String.valueOf(tblAluno.getModel().getValueAt(linha, 0)));
-
-        Aluno aluno = AlunosController.recuperaUm(Id);
-        if (aluno == null) {
-            Mensagem.erro("Aluno não encontrado.");    
-        } else {
-            idAlunoEditando = aluno.getId();
-            txtNome.setText(aluno.getNome());
-            txtDocumento.setText(aluno.getDocumento());
-            txtEmail.setText(aluno.getEmail());
-            txtTelefone.setText(aluno.getTelefone());
-
-            if (aluno.getDataNascimento() != null) {
-                txtDataNascimento.setText(aluno.getDataNascimento().toString());
-            } else {
-                txtDataNascimento.setText("");
-            }
-
-            jtpAluno.setSelectedIndex(1);
-            txtNome.requestFocus();
-        }
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        carregaInformacoes();
-    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
@@ -414,11 +382,16 @@ public class TelaAluno extends javax.swing.JFrame {
 
         if (!txtDataNascimento.getText().trim().isEmpty()) {
             try {
+                java.time.format.DateTimeFormatter formato
+                        = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
                 dataNascimento = java.time.LocalDate.parse(
-                        txtDataNascimento.getText().trim()
+                        txtDataNascimento.getText().trim(),
+                        formato
                 );
+
             } catch (java.time.format.DateTimeParseException ex) {
-                Mensagem.erro("Data de nascimento inválida. Use o formato AAAA-MM-DD.");
+                Mensagem.erro("Data de nascimento inválida. Use o formato DD/MM/AAAA.");
                 return;
             }
         }
@@ -463,41 +436,6 @@ public class TelaAluno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaAluno().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
@@ -512,7 +450,6 @@ public class TelaAluno extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jtpAluno;
     private javax.swing.JLabel lblPesquisa;
     private javax.swing.JTable tblAluno;
