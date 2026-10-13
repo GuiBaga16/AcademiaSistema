@@ -30,8 +30,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         desktopPane = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        dskSapato = new javax.swing.JMenuItem();
+        dskEquipamento = new javax.swing.JMenu();
+        dskAluno = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,16 +47,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGap(0, 356, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Cadastros");
+        dskEquipamento.setText("Cadastros");
 
-        dskSapato.setText("Alunos");
-        dskSapato.addActionListener(this::dskSapatoActionPerformed);
-        jMenu1.add(dskSapato);
+        dskAluno.setText("Alunos");
+        dskAluno.addActionListener(this::dskAlunoActionPerformed);
+        dskEquipamento.add(dskAluno);
 
-        jMenuBar1.add(jMenu1);
+        jMenuItem1.setText("Equipamentos");
+        jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
+        dskEquipamento.add(jMenuItem1);
+
+        jMenuItem2.setText("Exercicios");
+        jMenuItem2.addActionListener(this::jMenuItem2ActionPerformed);
+        dskEquipamento.add(jMenuItem2);
+
+        jMenuItem3.setText("Treino");
+        jMenuItem3.addActionListener(this::jMenuItem3ActionPerformed);
+        dskEquipamento.add(jMenuItem3);
+
+        jMenuItem4.setText("Tipo Treino");
+        jMenuItem4.addActionListener(this::jMenuItem4ActionPerformed);
+        dskEquipamento.add(jMenuItem4);
+
+        jMenuBar1.add(dskEquipamento);
 
         setJMenuBar(jMenuBar1);
 
@@ -70,11 +90,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dskSapatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dskSapatoActionPerformed
+    private void dskAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dskAlunoActionPerformed
         TelaAlunoInterna telaAluno = new TelaAlunoInterna();
         desktopPane.add(telaAluno);
         telaAluno.setVisible(true);
-    }//GEN-LAST:event_dskSapatoActionPerformed
+    }//GEN-LAST:event_dskAlunoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        TelaEquipamentoInterna telaEquipamento = new TelaEquipamentoInterna();
+        desktopPane.add(telaEquipamento);
+        telaEquipamento.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        TelaExercicioInterna telaExercicio = new TelaExercicioInterna();
+        desktopPane.add(telaExercicio);
+        telaExercicio.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        TelaTreinoInterna telaTreino = new TelaTreinoInterna();
+        desktopPane.add(telaTreino);
+        telaTreino.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        TelaTipoTreinoInterna telaTipoTreino = new TelaTipoTreinoInterna();
+        desktopPane.add(telaTipoTreino);
+        telaTipoTreino.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,8 +147,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel desktopPane;
-    private javax.swing.JMenuItem dskSapato;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem dskAluno;
+    private javax.swing.JMenu dskEquipamento;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
