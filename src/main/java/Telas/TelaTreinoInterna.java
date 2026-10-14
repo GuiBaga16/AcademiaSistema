@@ -50,6 +50,8 @@ public class TelaTreinoInterna extends javax.swing.JInternalFrame {
         btnSalvar = new javax.swing.JButton();
         cbxTreino = new javax.swing.JComboBox<>();
 
+        setClosable(true);
+
         lblPesquisa.setText("Pesquisar");
 
         btnBuscar.setText("Buscar");

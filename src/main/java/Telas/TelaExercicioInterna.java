@@ -53,6 +53,8 @@ public class TelaExercicioInterna extends javax.swing.JInternalFrame {
         btnSalvar = new javax.swing.JButton();
         cbxEquipamento = new javax.swing.JComboBox<>();
 
+        setClosable(true);
+
         lblPesquisa.setText("Pesquisar");
 
         btnBuscar.setText("Buscar");

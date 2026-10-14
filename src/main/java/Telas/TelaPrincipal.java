@@ -36,6 +36,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +72,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem4.setText("Tipo Treino");
         jMenuItem4.addActionListener(this::jMenuItem4ActionPerformed);
         dskEquipamento.add(jMenuItem4);
+
+        jMenuItem5.setText("Treino Exercicio");
+        jMenuItem5.addActionListener(this::jMenuItem5ActionPerformed);
+        dskEquipamento.add(jMenuItem5);
 
         jMenuBar1.add(dskEquipamento);
 
@@ -120,6 +125,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaTipoTreino.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        TelaTreinoExercicioInterna telaTreinoExercicio = new TelaTreinoExercicioInterna();
+        desktopPane.add(telaTreinoExercicio);
+        telaTreinoExercicio.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -154,5 +165,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
 }

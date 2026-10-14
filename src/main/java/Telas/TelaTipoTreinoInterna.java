@@ -51,6 +51,8 @@ public class TelaTipoTreinoInterna extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JButton();
 
+        setClosable(true);
+
         lblPesquisa.setText("Pesquisar");
 
         btnBuscar.setText("Buscar");
