@@ -1,4 +1,3 @@
-
 package Entidade;
 
 public class Treino {
@@ -54,5 +53,10 @@ public class Treino {
 
     public void setTipoTreinoId(int tipoTreinoId) {
         this.tipoTreinoId = tipoTreinoId;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 }

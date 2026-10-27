@@ -1,9 +1,5 @@
 package Controllers;
 
-/**
- *
- * @author guilherme.bagatini
- */
 import Entidade.Aluno;
 import Entidades.dao.AlunoDAO;
 
