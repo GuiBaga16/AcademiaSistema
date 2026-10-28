@@ -54,8 +54,16 @@ public class ExercicioDAO {
     public ArrayList<Exercicio> recuperaTodos() throws SQLException {
         ArrayList<Exercicio> exercicios = new ArrayList<>();
 
-        String sql = "SELECT id, nome, descricao, equipamento_id "
-                + "FROM exercicio ORDER BY id";
+        String sql = "SELECT "
+                + "e.id, "
+                + "e.nome, "
+                + "e.equipamento_id, "
+                + "eq.nome AS equipamento_nome, "
+                + "e.descricao "
+                + "FROM exercicio e "
+                + "INNER JOIN equipamento eq "
+                + "ON e.equipamento_id = eq.id "
+                + "ORDER BY e.id";
 
         try (Connection conn = Conexao.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 
@@ -65,6 +73,10 @@ public class ExercicioDAO {
                         rs.getString("nome"),
                         rs.getString("descricao"),
                         rs.getInt("equipamento_id")
+                );
+
+                exercicio.setEquipamentoNome(
+                        rs.getString("equipamento_nome")
                 );
 
                 exercicios.add(exercicio);

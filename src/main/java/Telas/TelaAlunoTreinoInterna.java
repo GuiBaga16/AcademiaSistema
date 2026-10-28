@@ -72,6 +72,8 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
         cbxEquipamento2 = new javax.swing.JComboBox<>();
         cbxEquipamento1 = new javax.swing.JComboBox<>();
 
+        setClosable(true);
+
         jInternalFrame1.setClosable(true);
 
         lblPesquisa.setText("Pesquisar");
@@ -270,7 +272,7 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jtpExercicio1.addTab("Exercícios dos alunos", jPanel3);
+        jtpExercicio1.addTab("Treino dos alunos", jPanel3);
 
         jLabel4.setText("Aluno");
 
@@ -317,7 +319,7 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(cbxEquipamento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(btnAssociar)
                 .addGap(18, 18, 18))
         );
@@ -328,7 +330,7 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtpExercicio1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(jtpExercicio1)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 243, Short.MAX_VALUE)
@@ -342,9 +344,9 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 152, Short.MAX_VALUE)
+                    .addGap(0, 154, Short.MAX_VALUE)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 152, Short.MAX_VALUE)))
+                    .addGap(0, 153, Short.MAX_VALUE)))
         );
 
         pack();
@@ -375,7 +377,8 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
     }
 
     private void carregaInformacoes() {
-        ArrayList<AlunoTreino> associacoes = AlunoTreinoController.recuperaTodos();
+        ArrayList<AlunoTreino> associacoes
+                = AlunoTreinoController.recuperaTodos();
 
         if (associacoes == null) {
             Mensagem.erro("Ocorreu um erro ao consultar as associações.");
@@ -388,12 +391,8 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
             public String getColumnName(int column) {
                 switch (column) {
                     case 0:
-                        return "Aluno ID";
-                    case 1:
                         return "Aluno";
-                    case 2:
-                        return "Treino ID";
-                    case 3:
+                    case 1:
                         return "Treino";
                     default:
                         return "";
@@ -402,7 +401,7 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
 
             @Override
             public int getColumnCount() {
-                return 4;
+                return 2;
             }
 
             @Override
@@ -416,12 +415,8 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
 
                 switch (columnIndex) {
                     case 0:
-                        return associacao.getAlunoId();
-                    case 1:
                         return associacao.getAlunoNome();
-                    case 2:
-                        return associacao.getTreinoId();
-                    case 3:
+                    case 1:
                         return associacao.getTreinoNome();
                     default:
                         return "n/d";
@@ -440,25 +435,6 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
 
-        int linha = tblAlunoExercicio.getSelectedRow();
-
-        if (linha == -1) {
-            Mensagem.erro("Selecione uma associação para excluir.");
-            return;
-        }
-
-        int linhaModelo = tblAlunoExercicio.convertRowIndexToModel(linha);
-        int alunoId = Integer.parseInt(String.valueOf(tblAlunoExercicio.getModel().getValueAt(linhaModelo, 0)));
-        int treinoId = Integer.parseInt(String.valueOf(tblAlunoExercicio.getModel().getValueAt(linhaModelo, 1)));
-
-        boolean retorno = AlunoTreinoController.excluir(alunoId, treinoId);
-
-        if (retorno) {
-            Mensagem.informacao("Associação excluída com sucesso!");
-            carregaInformacoes();
-        } else {
-            Mensagem.erro("Ocorreu um erro ao tentar excluir a associação.");
-        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -470,20 +446,12 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtDescricaoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void cbxEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEquipamentoActionPerformed
 
     }//GEN-LAST:event_cbxEquipamentoActionPerformed
-
-    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        carregaInformacoes();
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
-
-    private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
-
-    }//GEN-LAST:event_btnExcluir1ActionPerformed
 
     private void btnAssociarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssociarActionPerformed
         int indiceAluno = cbxEquipamento2.getSelectedIndex();
@@ -526,6 +494,44 @@ public class TelaAlunoTreinoInterna extends javax.swing.JInternalFrame {
     private void cbxEquipamento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEquipamento2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxEquipamento2ActionPerformed
+
+    private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
+
+        int linha = tblAlunoExercicio.getSelectedRow();
+
+        if (linha == -1) {
+            Mensagem.erro("Selecione uma associação para excluir.");
+            return;
+        }
+
+        int linhaModelo = tblAlunoExercicio.convertRowIndexToModel(linha);
+
+        ArrayList<AlunoTreino> associacoes
+                = AlunoTreinoController.recuperaTodos();
+
+        if (associacoes == null || linhaModelo >= associacoes.size()) {
+            Mensagem.erro("Não foi possível recuperar a associação selecionada.");
+            return;
+        }
+
+        AlunoTreino associacao = associacoes.get(linhaModelo);
+
+        int alunoId = associacao.getAlunoId();
+        int treinoId = associacao.getTreinoId();
+
+        boolean retorno = AlunoTreinoController.excluir(alunoId, treinoId);
+
+        if (retorno) {
+            Mensagem.informacao("Associação excluída com sucesso!");
+            carregaInformacoes();
+        } else {
+            Mensagem.erro("Ocorreu um erro ao tentar excluir a associação.");
+        }
+    }//GEN-LAST:event_btnExcluir1ActionPerformed
+
+    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
+        carregaInformacoes();
+    }//GEN-LAST:event_btnBuscar1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -185,8 +185,7 @@ public class TelaTipoTreinoInterna extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void carregaInformacoes() {
-        ArrayList<TipoTreino> tipos
-                = TiposTreinoController.recuperaTodos();
+        ArrayList<TipoTreino> tipos = TiposTreinoController.recuperaTodos();
 
         tblTipoTreino.setModel(new AbstractTableModel() {
 
@@ -259,9 +258,7 @@ public class TelaTipoTreinoInterna extends javax.swing.JInternalFrame {
             return;
         }
 
-        int id = Integer.parseInt(
-                String.valueOf(
-                        tblTipoTreino.getValueAt(linha, 0)));
+        int id = Integer.parseInt(String.valueOf(tblTipoTreino.getValueAt(linha, 0)));
 
         boolean retorno = TiposTreinoController.excluir(id);
 
@@ -299,18 +296,12 @@ public class TelaTipoTreinoInterna extends javax.swing.JInternalFrame {
             TipoTreino tipo = new TipoTreino(nome, descricao);
             retorno = TiposTreinoController.salvar(tipo);
         } else {
-            TipoTreino tipo = new TipoTreino(
-                    idTipoTreinoEditando, nome, descricao);
+            TipoTreino tipo = new TipoTreino(idTipoTreinoEditando, nome, descricao);
             retorno = TiposTreinoController.editar(tipo);
         }
 
         if (retorno) {
             Mensagem.informacao("Tipo de treino salvo com sucesso!");
-
-            idTipoTreinoEditando = 0;
-            txtNome.setText("");
-            txtDescricao.setText("");
-
             carregaInformacoes();
         } else {
             Mensagem.erro("Não foi possível salvar o tipo de treino.");

@@ -238,7 +238,7 @@ public class TelaTreinoInterna extends javax.swing.JInternalFrame {
                     case 1:
                         return treino.getNome();
                     case 2:
-                        return treino.getTipoTreinoId();
+                        return treino.getTipoTreinoNome();
                     case 3:
                         return treino.getDescricao();
                     default:
@@ -347,9 +347,6 @@ public class TelaTreinoInterna extends javax.swing.JInternalFrame {
 
             if (retorno) {
                 Mensagem.informacao("Treino cadastrado com sucesso!");
-                txtNome.setText("");
-                cbxTreino.setSelectedIndex(-1);
-                txtDescricao.setText("");
                 carregaInformacoes();
             } else {
                 Mensagem.erro("Erro ao cadastrar o treino.");
@@ -363,9 +360,7 @@ public class TelaTreinoInterna extends javax.swing.JInternalFrame {
 
             if (retorno) {
                 Mensagem.informacao("Treino " + idTreinoEditando + " editado com sucesso!");
-                txtNome.setText("");
-                cbxTreino.setSelectedIndex(-1);
-                txtDescricao.setText("");
+                carregaInformacoes();
             } else {
                 Mensagem.erro("Erro ao editar o treino.");
                 return;

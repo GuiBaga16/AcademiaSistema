@@ -6,6 +6,7 @@ public class Exercicio {
     private String nome;
     private String descricao;
     private int equipamentoId;
+    private String equipamentoNome;
 
     public Exercicio() {
     }
@@ -53,5 +54,13 @@ public class Exercicio {
 
     public void setEquipamentoId(int equipamentoId) {
         this.equipamentoId = equipamentoId;
+    }
+
+    public String getEquipamentoNome() {
+        return equipamentoNome;
+    }
+
+    public void setEquipamentoNome(String equipamentoNome) {
+        this.equipamentoNome = equipamentoNome;
     }
 }

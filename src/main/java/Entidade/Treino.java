@@ -6,6 +6,7 @@ public class Treino {
     private String nome;
     private String descricao;
     private int tipoTreinoId;
+    private String tipoTreinoNome;
 
     public Treino() {
     }
@@ -53,6 +54,14 @@ public class Treino {
 
     public void setTipoTreinoId(int tipoTreinoId) {
         this.tipoTreinoId = tipoTreinoId;
+    }
+
+    public String getTipoTreinoNome() {
+        return tipoTreinoNome;
+    }
+
+    public void setTipoTreinoNome(String tipoTreinoNome) {
+        this.tipoTreinoNome = tipoTreinoNome;
     }
 
     @Override

@@ -216,7 +216,7 @@ public class TelaExercicioInterna extends javax.swing.JInternalFrame {
                         case 1:
                             return "Nome";
                         case 2:
-                            return "EquipamentoId";
+                            return "Equipamento";
                         case 3:
                             return "Descricao";
                         default:
@@ -245,7 +245,7 @@ public class TelaExercicioInterna extends javax.swing.JInternalFrame {
                             case 1:
                                 return e.getNome();
                             case 2:
-                                return e.getEquipamentoId();
+                                return e.getEquipamentoNome();
                             case 3:
                                 return e.getDescricao();
                         }

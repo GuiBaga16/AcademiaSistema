@@ -54,8 +54,16 @@ public class TreinoDAO {
     public ArrayList<Treino> recuperaTodos() throws SQLException {
         ArrayList<Treino> treinos = new ArrayList<>();
 
-        String sql = "SELECT id, nome, descricao, tipo_treino_id "
-                + "FROM treino ORDER BY id";
+        String sql = "SELECT\n"
+                + "    t.id,\n"
+                + "    t.nome,\n"
+                + "    t.tipo_treino_id,\n"
+                + "    tt.nome AS tipo_treino_nome,\n"
+                + "    t.descricao\n"
+                + "FROM treino t\n"
+                + "INNER JOIN tipo_treino tt\n"
+                + "    ON t.tipo_treino_id = tt.id\n"
+                + "ORDER BY t.id;";
 
         try (Connection conn = Conexao.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 
@@ -66,6 +74,8 @@ public class TreinoDAO {
                         rs.getString("descricao"),
                         rs.getInt("tipo_treino_id")
                 );
+
+                treino.setTipoTreinoNome(rs.getString("tipo_treino_nome"));
 
                 treinos.add(treino);
             }

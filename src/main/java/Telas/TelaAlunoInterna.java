@@ -17,7 +17,7 @@ import recursos.Mensagem;
 public class TelaAlunoInterna extends javax.swing.JInternalFrame {
 
     private int idAlunoEditando = 0;
-    
+
     public TelaAlunoInterna() {
         initComponents();
         carregaInformacoes();
@@ -238,14 +238,6 @@ public class TelaAlunoInterna extends javax.swing.JInternalFrame {
                             return "Id";
                         case 1:
                             return "Nome";
-                        case 2:
-                            return "Documento";
-                        case 3:
-                            return "E-mail";
-                        case 4:
-                            return "Telefone";
-                        case 5:
-                            return "Data de Nascimento";
                         default:
                             return "";
                     }
@@ -253,7 +245,7 @@ public class TelaAlunoInterna extends javax.swing.JInternalFrame {
 
                 @Override
                 public int getColumnCount() {
-                    return 6;
+                    return 2;
                 }
 
                 @Override
@@ -271,14 +263,6 @@ public class TelaAlunoInterna extends javax.swing.JInternalFrame {
                                 return a.getId();
                             case 1:
                                 return a.getNome();
-                            case 2:
-                                return a.getDocumento();
-                            case 3:
-                                return a.getEmail();
-                            case 4:
-                                return a.getTelefone();
-                            case 5:
-                                return a.getDataNascimento();
                         }
                     }
 
