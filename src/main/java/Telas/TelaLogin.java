@@ -1,7 +1,9 @@
 package Telas;
 
+import Telas.TelaPrincipal;
 import Controllers.UsuarioController;
 import Entidade.Usuario;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -9,7 +11,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin() {
         initComponents();
-        // Enter em qualquer campo aciona o botão "Entrar".
         getRootPane().setDefaultButton(btnEntrar);
     }
 
@@ -94,29 +95,28 @@ public class TelaLogin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-
     private void entrar() {
         String login = txtLogin.getText().trim();
-        // getPassword() devolve char[] (getText() está deprecated).
         String senha = new String(txtSenha.getPassword());
 
         String erro = controladorUsuario.validar(login, senha);
+
         if (erro != null) {
             lblMensagem.setText(erro);
             return;
         }
 
         Usuario usuario = controladorUsuario.autenticar(login, senha);
+
         if (usuario == null) {
-            // Mensagem genérica de propósito.
             lblMensagem.setText("Login ou senha inválidos.");
             txtSenha.setText("");
             txtSenha.requestFocus();
             return;
         }
 
-        TelaMenu telaMenu = new TelaMenu();
-        telaMenu.setVisible(true);
+        TelaPrincipal telaPrincipal = new TelaPrincipal();
+        telaPrincipal.setVisible(true);
         dispose();
     }
 
@@ -124,7 +124,7 @@ public class TelaLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FlatMacDarkLaf.setup(); 
+        FlatMacDarkLaf.setup();
         java.awt.EventQueue.invokeLater(() -> new TelaLogin().setVisible(true));
     }
 

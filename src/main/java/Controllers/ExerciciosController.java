@@ -2,13 +2,16 @@ package Controllers;
 
 import Entidade.Exercicio;
 import Entidades.dao.ExercicioDAO;
+import Entidades.dao.ExercicioDAOjdbc;
 import java.util.ArrayList;
 
 public class ExerciciosController {
 
+    private static final ExercicioDAO dao = new ExercicioDAOjdbc();
+
     public static boolean salvar(Exercicio exercicio) {
         try {
-            new ExercicioDAO().salvar(exercicio);
+            dao.salvar(exercicio);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -18,7 +21,7 @@ public class ExerciciosController {
 
     public static boolean editar(Exercicio exercicio) {
         try {
-            new ExercicioDAO().editar(exercicio);
+            dao.editar(exercicio);
             return true;
         } catch (Exception ex) {
             System.out.println(ex.toString());
@@ -28,7 +31,7 @@ public class ExerciciosController {
 
     public static boolean excluir(int id) {
         try {
-            new ExercicioDAO().excluir(id);
+            dao.excluir(id);
             return true;
         } catch (Exception ex) {
             System.out.println(ex.toString());
@@ -38,7 +41,7 @@ public class ExerciciosController {
 
     public static ArrayList<Exercicio> recuperaTodos() {
         try {
-            return new ExercicioDAO().recuperaTodos();
+            return dao.recuperaTodos();
         } catch (Exception ex) {
             System.out.println(ex.toString());
             return new ArrayList<>();
@@ -47,7 +50,7 @@ public class ExerciciosController {
 
     public static Exercicio recuperaUm(int id) {
         try {
-            return new ExercicioDAO().recuperaUm(id);
+            return dao.recuperaUm(id);
         } catch (Exception ex) {
             System.out.println(ex.toString());
             return null;

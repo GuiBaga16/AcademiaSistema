@@ -2,55 +2,30 @@ package Controllers;
 
 import Entidade.TipoTreino;
 import Entidades.dao.TipoTreinoDAO;
+import Entidades.dao.TipoTreinoDAOjdbc;
 import java.util.ArrayList;
 
 public class TiposTreinoController {
 
+    private static final TipoTreinoDAO dao = new TipoTreinoDAOjdbc();
+
     public static boolean salvar(TipoTreino tipoTreino) {
-        try {
-            new TipoTreinoDAO().salvar(tipoTreino);
-            return true;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return false;
-        }
+        return dao.salvar(tipoTreino);
     }
 
     public static boolean editar(TipoTreino tipoTreino) {
-        try {
-            new TipoTreinoDAO().editar(tipoTreino);
-            return true;
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-            return false;
-        }
+        return dao.editar(tipoTreino);
     }
 
     public static boolean excluir(int id) {
-        try {
-            new TipoTreinoDAO().excluir(id);
-            return true;
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-            return false;
-        }
+        return dao.excluir(id);
     }
 
     public static ArrayList<TipoTreino> recuperaTodos() {
-        try {
-            return new TipoTreinoDAO().recuperaTodos();
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-            return new ArrayList<>();
-        }
+        return dao.recuperaTodos();
     }
 
     public static TipoTreino recuperaUm(int id) {
-        try {
-            return new TipoTreinoDAO().recuperaUm(id);
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-            return null;
-        }
+        return dao.recuperaUm(id);
     }
 }

@@ -2,13 +2,16 @@ package Controllers;
 
 import Entidade.TreinoExercicio;
 import Entidades.dao.TreinoExercicioDAO;
+import Entidades.dao.TreinoExercicioDAOjdbc;
 import java.util.ArrayList;
 
 public class TreinoExerciciosController {
 
+    private static final TreinoExercicioDAO dao = new TreinoExercicioDAOjdbc();
+
     public static boolean salvar(TreinoExercicio item) {
         try {
-            new TreinoExercicioDAO().salvar(item);
+            dao.salvar(item);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -18,7 +21,7 @@ public class TreinoExerciciosController {
 
     public static boolean editar(TreinoExercicio item) {
         try {
-            new TreinoExercicioDAO().editar(item);
+            dao.editar(item);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -28,7 +31,7 @@ public class TreinoExerciciosController {
 
     public static boolean excluir(int treinoId, int exercicioId) {
         try {
-            new TreinoExercicioDAO().excluir(treinoId, exercicioId);
+            dao.excluir(treinoId, exercicioId);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -38,7 +41,7 @@ public class TreinoExerciciosController {
 
     public static ArrayList<TreinoExercicio> recuperaTodos(int treinoId) {
         try {
-            return new TreinoExercicioDAO().recuperaTodos(treinoId);
+            return dao.recuperaTodos(treinoId);
         } catch (Exception ex) {
             ex.printStackTrace();
             return new ArrayList<>();
@@ -48,8 +51,7 @@ public class TreinoExerciciosController {
     public static TreinoExercicio recuperaUm(
             int treinoId, int exercicioId) {
         try {
-            return new TreinoExercicioDAO().recuperaUm(
-                    treinoId, exercicioId);
+            return dao.recuperaUm(treinoId, exercicioId);
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
