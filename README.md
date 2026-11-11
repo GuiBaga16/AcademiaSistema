@@ -1,12 +1,6 @@
 # Academia-Sistema
 
-Sistema de cadastro de alunos da academia e equipamentos:
-
-## BAGAGYM
-
-* Cadastro de alunos
-* Cadastro de equipamentos
-* Gerenciamento dos registros da academia
+Sistema de gerenciamento interno de academia
 
 ## Tecnologias
 
